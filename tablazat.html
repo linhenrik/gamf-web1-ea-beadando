@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Web-programozás-1 Előadás Házi feladat</title>
   <link rel="stylesheet" href="style.css">
+  <script src="tablazat.js"></script>
 </head>
 <body>
   <header>
@@ -17,6 +18,8 @@
     </ul>
   </nav>
 
+  <input type="text" id="kereses" placeholder="Keresés">
+
   <form id="adatfelvetel">
     <input type="text" id="nev" placeholder="Név" required minlength="2" maxlength="30">
     <input type="number" id="eletkor" placeholder="Életkor" required min="1" max="120">
@@ -25,25 +28,20 @@
     <button type="submit">Felvétel</button>
   </form>
 
-  <table>
+  <table id="tablazat">
     <thead>
       <tr>
         <th>Név</th>
         <th>Életkor</th>
         <th>Város</th>
         <th>Munkakör</th>
+        <th>Művelet</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Teszt János</td>
-        <td>30</td>
-        <td>Mucsaröcsöge</td>
-        <td>Vonatkerék pumpáló</td>
-      </tr>
+      
     </tbody>
   </table>
-
   <footer>
     <p>Made by: Lindeisz Henrik (HSYNUU)</p>
   </footer>

@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
     const adatok = [];
     let szerkesztunk = null;
+    let rendezesIrany = 1;
+    let utolsoRendezettOszlop = null;
   
     adatfelvetel.addEventListener("submit", (letrehoz) => {
       letrehoz.preventDefault();
@@ -62,5 +64,32 @@ document.addEventListener("DOMContentLoaded", () => {
     
         szerkesztunk = index;
         adatfelvetel.querySelector("button").textContent = "Mentés";
+      };
+
+      window.rendez = function(oszlopIndex) {
+        if (utolsoRendezettOszlop === oszlopIndex) {
+          rendezesIrany *= -1;
+        } else {
+          rendezesIrany = 1;
+          utolsoRendezettOszlop = oszlopIndex;
+        }
+      
+        adatok.sort((a, b) => {
+          const kulcsok = ["nev", "eletkor", "varos", "munkakor"];
+          const kulcs = kulcsok[oszlopIndex];
+      
+          let A = a[kulcs].toString().toLowerCase();
+          let B = b[kulcs].toString().toLowerCase();
+          
+          if (kulcs === "eletkor") {
+            A = parseInt(A);
+            B = parseInt(B);
+            return (A - B) * rendezesIrany;
+          }
+      
+          return A.localeCompare(B, "hu") * rendezesIrany;
+        });
+      
+        megjelenites();
       };
   });

@@ -6,6 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let szerkesztunk = null;
     let rendezesIrany = 1;
     let utolsoRendezettOszlop = null;
+
+    const keresesInput = document.getElementById("kereses");
+
+    keresesInput.addEventListener("input", () => {
+    megjelenites();
+    });
   
     adatfelvetel.addEventListener("submit", (letrehoz) => {
       letrehoz.preventDefault();
@@ -30,25 +36,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   
     function megjelenites() {
-      tablaTorzs.innerHTML = "";
-  
-      adatok.forEach((sor, index) => {
-        const ujSor = document.createElement("tr");
-  
-        ujSor.innerHTML = `
-          <td>${sor.nev}</td>
-          <td>${sor.eletkor}</td>
-          <td>${sor.varos}</td>
-          <td>${sor.munkakor}</td>
-          <td>
-            <button onclick="szerkesztes(${index})">Szerkesztés</button>
-            <button onclick="torles(${index})">Törlés</button>
-          </td>
-        `;
-  
-        tablaTorzs.appendChild(ujSor);
-      });
-    }
+        tablaTorzs.innerHTML = "";
+      
+        const szuro = keresesInput.value.toLowerCase();
+      
+        adatok.forEach((sor, index) => {
+          const ertekek = [sor.nev, sor.eletkor, sor.varos, sor.munkakor]
+            .map(e => e.toString().toLowerCase());
+          
+          const talalat = ertekek.some(ertek => ertek.includes(szuro));
+      
+          if (talalat || szuro === "") {
+            const ujSor = document.createElement("tr");
+      
+            ujSor.innerHTML = `
+              <td>${sor.nev}</td>
+              <td>${sor.eletkor}</td>
+              <td>${sor.varos}</td>
+              <td>${sor.munkakor}</td>
+              <td>
+                <button onclick="szerkesztes(${index})">Szerkesztés</button>
+                <button onclick="torles(${index})">Törlés</button>
+              </td>
+            `;
+      
+            tablaTorzs.appendChild(ujSor);
+          }
+        });
+      }
   
     window.torles = function(index) {
       adatok.splice(index, 1);
@@ -80,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
           let A = a[kulcs].toString().toLowerCase();
           let B = b[kulcs].toString().toLowerCase();
-          
+
           if (kulcs === "eletkor") {
             A = parseInt(A);
             B = parseInt(B);

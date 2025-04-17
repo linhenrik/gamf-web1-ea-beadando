@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Web-programozás-1 Előadás Házi feladat</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="js/html5.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Web-programozás-1 Előadás Házi feladat</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Főoldal</a></li>
+      <li><a href="tablazat.html">Táblázat</a></li>
+      <li><a href="html5.html" class="active">HTML5</a></li>
+    </ul>
+  </nav>
+
+  <h2>HTML5 feladat</h2>
+
+    <section>
+      <h3>Web Storage</h3>
+      <input type="text" id="storageInput" placeholder="Szöveg">
+      <button onclick="mentes()">Mentés</button>
+      <button onclick="betoltes()">Betöltés</button>
+      <p id="storageOutput"></p>
+    </section>
+
+    <section>
+      <h3>Web Worker</h3>
+      <button onclick="elinditWorker()">Indít</button>
+      <p id="workerOutput"></p>
+    </section>
+
+    <section>
+      <h3>Server-Sent Events</h3>
+      <p id="sseKimenet">Kapcsolódás...</p>
+      <button onclick="leallitas()">Leállítás</button>
+    </section>
+
+    <section>
+      <h3>Geolocation API</h3>
+      <button onclick="pozicio()">Pozíció</button>
+      <p id="geoOutput"></p>
+    </section>
+
+    <section>
+      <h3>Drag & Drop</h3>
+      <div id="doboz" draggable="true" ondragstart="drag(event)">Drag</div>
+      <div id="cel" ondrop="drop(event)" ondragover="allowDrop(event)">Drop</div>
+    </section>
+
+    <section>
+      <h3>Canvas</h3>
+      <canvas id="vaszon" width="200" height="100" style="border:1px solid black;"></canvas>
+    </section>
+
+    <section>
+      <h3>SVG</h3>
+      <svg width="200" height="100">
+        <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+      </svg>
+    </section>
+  
+  <footer>
+    <p>Made by: Lindeisz Henrik (HSYNUU)</p>
+  </footer>
+</body>
+</html>

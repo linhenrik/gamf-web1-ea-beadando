@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Web-programozás-1 Előadás Házi feladat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Web-programozás-1 Előadás Házi feladat</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Főoldal</a></li>
+      <li><a href="tablazat.html">Táblázat</a></li>
+      <li><a href="html5.html">HTML5</a></li>
+      <li><a href="chartjs.html">ChartJS</a></li>
+      <li><a href="ajax.html" class="active">AJAX</a></li>
+    </ul>
+  </nav>
+
+  <h2>AJAX feladat</h2>
+
+  <section>
+    <h3>Create</h3>
+    <input type="text" id="nev" placeholder="Név">
+    <input type="text" id="magassag" placeholder="Magasság">
+    <input type="text" id="suly" placeholder="Súly">
+    <button onclick="hozzaadas()">Hozzáadás</button>
+  </section>
+
+  <section>
+    <h3>Update</h3>
+    <input type="text" id="idUpdate" placeholder="ID">
+    <button onclick="betoltes()">Adatok betöltése</button><br>
+    <input type="text" id="nevUpdate" placeholder="Név">
+    <input type="text" id="magassagUpdate" placeholder="Magasság">
+    <input type="text" id="sulyUpdate" placeholder="Súly">
+    <button onclick="modositas()">Módosítás</button>
+  </section>
+
+  <section>
+    <h3>Delete</h3>
+    <input type="text" id="idTorles" placeholder="ID">
+    <button onclick="torles()">Törlés</button>
+  </section>
+
+  <section>
+    <h3>Read</h3>
+    <button onclick="lekerdezes()">Lekérdezés</button>
+    <div id="eredmeny"></div>
+  </section>
+  
+  <footer>
+    <p>Made by: Lindeisz Henrik (HSYNUU)</p>
+  </footer>
+  <script src="js/ajax.js"></script>
+</body>
+</html>

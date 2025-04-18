@@ -12,19 +12,32 @@
 
   <nav>
     <ul>
-      <li><a href="index.html" class="active">Főoldal</a></li>
+      <li><a href="index.html">Főoldal</a></li>
       <li><a href="tablazat.html">Táblázat</a></li>
       <li><a href="html5.html">HTML5</a></li>
       <li><a href="chartjs.html">ChartJS</a></li>
       <li><a href="ajax.html">AJAX</a></li>
-      <li><a href="oojs.html">OOJS</a></li>
+      <li><a href="oojs.html" class="active">OOJS</a></li>
     </ul>
   </nav>
 
-  <p>Ezen az oldalon található a beadandó feladatom megvalósított feladatainak kimenete.</p>
+  <h2>OOJS feladat</h2>
 
+  <section>
+    <input type="text" id="nev" placeholder="Név">
+    <input type="number" id="kor" placeholder="Kor">
+    <input type="text" id="varos" placeholder="Város">
+    <button onclick="ujSzemely()">Felvétel</button>
+  </section>
+
+  <section>
+    <h2>Személyek listája</h2>
+    <ul id="lista"></ul>
+  </section>
+  
   <footer>
     <p>Made by: Lindeisz Henrik (HSYNUU)</p>
   </footer>
+  <script src="js/oojs.js"></script>
 </body>
 </html>
